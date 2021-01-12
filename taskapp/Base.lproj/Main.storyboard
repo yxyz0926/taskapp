@@ -15,8 +15,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GfX-Gh-Qft">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GfX-Gh-Qft">
+                                <rect key="frame" x="0.0" y="191" width="414" height="622"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="khg-Il-6xh" detailTextLabel="i3b-7c-OsE" style="IBUITableViewCellStyleSubtitle" id="I4F-D2-Fja">
@@ -45,14 +46,13 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dpc-zF-WRx">
+                                <rect key="frame" x="0.0" y="127" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="GfX-Gh-Qft" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Et1-QN-QaS"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="GfX-Gh-Qft" secondAttribute="bottom" id="TZt-si-liJ"/>
-                            <constraint firstItem="GfX-Gh-Qft" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ao5-Cw-VBG"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GfX-Gh-Qft" secondAttribute="trailing" id="wOd-yu-m2E"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <toolbarItems/>
@@ -66,6 +66,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="searchBar" destination="dpc-zF-WRx" id="hXS-8e-vCf"/>
                         <outlet property="tableView" destination="GfX-Gh-Qft" id="HrC-7h-82F"/>
                         <segue destination="kdk-pv-3vt" kind="show" identifier="cellSegue" id="Ffu-eA-zpY"/>
                     </connections>
@@ -82,59 +83,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jt4-1C-KZw">
-                                <rect key="frame" x="10" y="98" width="394" height="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jt4-1C-KZw">
+                                <rect key="frame" x="10" y="250" width="394" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="内容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jvo-KA-VQR">
-                                <rect key="frame" x="10" y="196" width="394" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="内容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jvo-KA-VQR">
+                                <rect key="frame" x="10" y="352" width="394" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cZV-QB-Qdh">
-                                <rect key="frame" x="10" y="152" width="394" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cZV-QB-Qdh">
+                                <rect key="frame" x="10" y="280" width="394" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZQH-Yf-R93">
-                                <rect key="frame" x="10" y="227" width="394" height="120"/>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="X55-zm-Ici">
+                                <rect key="frame" x="0.0" y="609" width="414" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="カテゴリ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qEX-sA-uc1">
+                                <rect key="frame" x="10" y="148" width="74" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8d0-Tz-C4b">
+                                <rect key="frame" x="10" y="178" width="394" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZQH-Yf-R93">
+                                <rect key="frame" x="10" y="397" width="394" height="204"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="iY0-1H-tcK"/>
-                                </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="X55-zm-Ici">
-                                <rect key="frame" x="0.0" y="357" width="414" height="120"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="drw-HL-4r9"/>
-                                </constraints>
-                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="ZQH-Yf-R93" firstAttribute="top" secondItem="Jvo-KA-VQR" secondAttribute="bottom" constant="10" id="Cdh-Qu-65y"/>
-                            <constraint firstItem="X55-zm-Ici" firstAttribute="leading" secondItem="iql-Oj-0wk" secondAttribute="leading" id="KVn-br-4Y7"/>
-                            <constraint firstItem="Jvo-KA-VQR" firstAttribute="top" secondItem="cZV-QB-Qdh" secondAttribute="bottom" constant="10" id="N6M-7j-yPV"/>
-                            <constraint firstItem="X55-zm-Ici" firstAttribute="trailing" secondItem="iql-Oj-0wk" secondAttribute="trailing" id="OK3-Jv-wNl"/>
-                            <constraint firstItem="jt4-1C-KZw" firstAttribute="top" secondItem="iql-Oj-0wk" secondAttribute="top" constant="10" id="Ovm-ia-FtQ"/>
-                            <constraint firstItem="iql-Oj-0wk" firstAttribute="trailing" secondItem="cZV-QB-Qdh" secondAttribute="trailing" constant="10" id="P0U-oH-20o"/>
-                            <constraint firstItem="jt4-1C-KZw" firstAttribute="leading" secondItem="iql-Oj-0wk" secondAttribute="leading" constant="10" id="Xjs-6B-jyD"/>
-                            <constraint firstItem="iql-Oj-0wk" firstAttribute="trailing" secondItem="ZQH-Yf-R93" secondAttribute="trailing" constant="10" id="a1j-G4-c1B"/>
-                            <constraint firstItem="ZQH-Yf-R93" firstAttribute="leading" secondItem="iql-Oj-0wk" secondAttribute="leading" constant="10" id="hbP-lO-438"/>
-                            <constraint firstItem="Jvo-KA-VQR" firstAttribute="leading" secondItem="iql-Oj-0wk" secondAttribute="leading" constant="10" id="knN-mI-Zwx"/>
-                            <constraint firstItem="iql-Oj-0wk" firstAttribute="trailing" secondItem="jt4-1C-KZw" secondAttribute="trailing" constant="10" id="n5T-Ya-CEK"/>
-                            <constraint firstItem="cZV-QB-Qdh" firstAttribute="top" secondItem="jt4-1C-KZw" secondAttribute="bottom" constant="32" id="q8y-1R-dIW"/>
-                            <constraint firstItem="cZV-QB-Qdh" firstAttribute="leading" secondItem="iql-Oj-0wk" secondAttribute="leading" constant="10" id="qCm-AN-6Mt"/>
-                            <constraint firstItem="iql-Oj-0wk" firstAttribute="trailing" secondItem="Jvo-KA-VQR" secondAttribute="trailing" constant="10" id="qX9-DS-DHu"/>
-                            <constraint firstItem="X55-zm-Ici" firstAttribute="top" secondItem="ZQH-Yf-R93" secondAttribute="bottom" constant="10" id="zCr-yD-8wA"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="iql-Oj-0wk"/>
                     </view>
                     <navigationItem key="navigationItem" id="4cr-pr-AXE"/>
