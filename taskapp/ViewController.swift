@@ -20,11 +20,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let realm = try! Realm()
     var taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: true)
     
-    
-    
-    var dateList = [String]()
-    var searchResults = [String]()
-   
+//    var dateList: [String] = []
+//    var searchResults: [String] = []
+//
     
     
     
@@ -35,7 +33,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         searchBar.delegate = self
         searchBar.enablesReturnKeyAutomatically = false
-        searchResults = dateList
+//        searchResults = dateList
         
         
         super.viewDidLoad()
@@ -98,25 +96,58 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
 }
         
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchResults.count
-    }
-    
+//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return searchResults.count
+//    }
+    //検索結果ボタン押下時のメソッド
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
         
-    }
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-       
-        searchBar.endEditing(true)
-        //検索文字列を含むデータを検索結果配列に格納する。
-       searchResults = dateList.filter { data in
-       return data.contains(searchBar.text!)
-       }
+        if searchText.isEmpty {
+            taskArray = realm.objects(Task.self)
+        } else {
+            taskArray = realm
+                .objects(Task.self)
+                .filter("category BEGINSWITH %@", searchText)
+        }
+        tableView.reloadData()
         
-       //テーブルを再読み込みする。
-       tableView.reloadData()
-       
     }
+//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+       
+//        guard let searchText = searchBar.text else {
+//            return
+//        }
+//        print(searchText)
+//
+        
+        
+        
+        
+        
+//        searchBar.endEditing(true)
+//        //検索文字列を含むデータを検索結果配列に格納する。
+//       searchResults = dateList.filter { data in
+//       return data.contains(searchBar.text!)
+//       }
+//
+//       //テーブルを再読み込みする。
+//       tableView.reloadData()
+       
+//    }
+//    private func search(_ text: String) {
+//        var newArray: [String] = []
+//        array.forEach({
+//            if $0.contains(text) {
+//                newArray.insert($0, at: 0)
+//            } else {
+//                newArray.append($0)
+//            }
+//        })
+//        array = newArray  //新しい配列を代入
+//        tableView.reloadData()  //反映させる
+//    }
+    
+    
         
     
     
