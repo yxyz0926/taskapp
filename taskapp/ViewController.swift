@@ -32,6 +32,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.dataSource = self
         
         searchBar.delegate = self
+//        self.searchBar.endEditing(true)
         searchBar.enablesReturnKeyAutomatically = false
 //        searchResults = dateList
         
@@ -109,13 +110,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 .objects(Task.self)
                 .filter("category BEGINSWITH %@", searchText)
         }
+        
         tableView.reloadData()
         
     }
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-       
+//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) -> Bool {
+//       self.searchBar.endEditing(true)
 //        guard let searchText = searchBar.text else {
 //            return
+//        searchBar.resignFirstResponder()
 //        }
 //        print(searchText)
 //
