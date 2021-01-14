@@ -16,15 +16,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var searchBar: UISearchBar!
     
     
-    
     let realm = try! Realm()
     var taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: true)
     
 //    var dateList: [String] = []
 //    var searchResults: [String] = []
-//
-    
-    
     
     override func viewDidLoad() {
         
@@ -32,19 +28,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.dataSource = self
         
         searchBar.delegate = self
-//        self.searchBar.endEditing(true)
         searchBar.enablesReturnKeyAutomatically = false
-//        searchResults = dateList
-        
-        
+    
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return taskArray.count
-        
     }
+    
     //セルの値を設定するデリゲードメソッド(必須)
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
             //セルを取得
@@ -63,15 +56,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
     }
     
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
         	performSegue(withIdentifier: "cellSegue", sender: nil)
     }
     
+    
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle{
         
         return .delete
     }
+    
     
     func tableView(_ tableView: UITableView, commiteditingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath){
 
@@ -95,11 +91,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
         }
         
-}
-        
-//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return searchResults.count
-//    }
+    }
+    
     //検索結果ボタン押下時のメソッド
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
         
@@ -112,62 +105,38 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         tableView.reloadData()
-        
     }
+    
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
-//       self.searchBar.endEditing(true)
+        self.searchBar.endEditing(true)
+            searchBar.showsCancelButton = false;
+//            } else{
+//
+//            searchBar.showsCancelButton = true;
+//        }
+
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        self.searchBar.endEditing(true)
+    }
     
-    print("end searching --> Close Keyboard")
-           self.searchBar.endEditing(true)
     
-        }
     
-        func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = true;
     }
-        func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        searchBar.showsCancelButton = false;
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.endEditing(true)
+           searchBar.resignFirstResponder()
+           searchBar.showsCancelButton = false;
     }
     
     
     
-//        func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+//  func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
 //            self.searchBar.endEditing(true)
 //            searchBar.showsCancelButton = false;
-
 //        }
-//
-        
-//        searchBar.endEditing(true)
-//        //検索文字列を含むデータを検索結果配列に格納する。
-//       searchResults = dateList.filter { data in
-//       return data.contains(searchBar.text!)
-//       }
-//
-//       //テーブルを再読み込みする。
-//       tableView.reloadData()
-       
-//    }
-//    private func search(_ text: String) {
-//        var newArray: [String] = []
-//        array.forEach({
-//            if $0.contains(text) {
-//                newArray.insert($0, at: 0)
-//            } else {
-//                newArray.append($0)
-//            }
-//        })
-//        array = newArray  //新しい配列を代入
-//        tableView.reloadData()  //反映させる
-//    }
-    
-    
-        
-    
-    
-    
-    
     
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
