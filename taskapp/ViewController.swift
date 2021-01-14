@@ -114,18 +114,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.reloadData()
         
     }
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) -> Bool {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
 //       self.searchBar.endEditing(true)
-//        guard let searchText = searchBar.text else {
-//            return
-//        searchBar.resignFirstResponder()
+    
+    print("end searching --> Close Keyboard")
+           self.searchBar.endEditing(true)
+    
+        }
+    
+        func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true;
+    }
+        func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        searchBar.showsCancelButton = false;
+    }
+    
+    
+    
+//        func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+//            self.searchBar.endEditing(true)
+//            searchBar.showsCancelButton = false;
+
 //        }
-//        print(searchText)
 //
-        
-        
-        
-        
         
 //        searchBar.endEditing(true)
 //        //検索文字列を含むデータを検索結果配列に格納する。
